@@ -22,7 +22,7 @@ class YourThread3 extends Thread {
     @Override
     public void run() {
         long startTime = System.currentTimeMillis();
-            System.out.println(fib.doMath(15));
+            System.out.println(fib.doMath(35));
         long estimatedTime = System.currentTimeMillis() - startTime;
         System.out.println(estimatedTime/1000);
     }

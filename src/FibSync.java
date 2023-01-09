@@ -1,7 +1,29 @@
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.Map;
 
+class Cache {
+
+    private static Cache cache = null;
+    public Map<BigInteger,BigInteger> cachem = new HashMap<>();
+
+    public static Cache getInstance()
+    {
+        if (cache == null)
+            cache = new Cache();
+  
+        return cache;
+    }
+
+    
+}
 class Fib {
+    Cache c;
+    
+    public Fib(Cache c) {
+        this.c = c;
+    }
+
     int doMath(int n) {
         if (n<2) {
             return n;
