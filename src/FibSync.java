@@ -4,34 +4,40 @@ import java.util.Map;
 
 class Cache {
 
-    private static Cache cache = null;
-    public Map<BigInteger,BigInteger> cachem = new HashMap<>();
+    private static HashMap<BigInteger, BigInteger> cache = null;
 
-    public static Cache getInstance()
-    {
-        if (cache == null)
-            cache = new Cache();
-  
+    public Cache() {
+    }
+
+    public static HashMap<BigInteger, BigInteger> getCache() {
+
+        if (cache == null) {
+            cache = new HashMap<BigInteger,BigInteger>();
+        }
         return cache;
     }
-
-    
+ 
 }
 class Fib {
-    Cache c;
-    
-    public Fib(Cache c) {
-        this.c = c;
-    }
+
+    HashMap<BigInteger, BigInteger> memo = Cache.getCache();
 
     int doMath(int n) {
         if (n<2) {
             return n;
         }
+
+        if (memo.containsKey(BigInteger.valueOf(n))) {
+            return memo.get(BigInteger.valueOf(n)).intValue();
+        }
+
         return doMath(n-2) + doMath(n-1);
     }
 }
 class Fib2 {
+
+    HashMap<BigInteger, BigInteger> memo = Cache.getCache();
+    
     BigInteger doMath(BigInteger n, Map<BigInteger, BigInteger> mp) {
 
         if (mp.containsKey(n)) {
