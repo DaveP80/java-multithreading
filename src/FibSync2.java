@@ -1,5 +1,4 @@
 import java.math.BigInteger;
-import java.util.HashMap;
 
 class MyThread2 extends Thread {
     Fib2 fib;
@@ -9,7 +8,7 @@ class MyThread2 extends Thread {
     @Override
     public void run() {
         synchronized (fib) {
-            System.out.println(fib.doMath(BigInteger.valueOf(76)));
+            System.out.println(fib.doMath(BigInteger.valueOf(80)));
         }
 
     }
@@ -22,7 +21,7 @@ class YourThread3 extends Thread {
     @Override
     public void run() {
         synchronized(fib) {
-            System.out.println(fib.doMath(65));
+            System.out.println(fib.doMath(BigInteger.valueOf(20)));
         }
     }
 }
