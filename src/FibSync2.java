@@ -8,10 +8,10 @@ class MyThread2 extends Thread {
     }
     @Override
     public void run() {
-        long startTime = System.currentTimeMillis();
-            System.out.println(fib.doMath(BigInteger.valueOf(58), new HashMap<>()));
-        long estimatedTime = System.currentTimeMillis() - startTime;
-        System.out.println(estimatedTime/1000);
+        synchronized (fib) {
+            System.out.println(fib.doMath(BigInteger.valueOf(76)));
+        }
+
     }
 }
 class YourThread3 extends Thread {
@@ -21,10 +21,9 @@ class YourThread3 extends Thread {
     }
     @Override
     public void run() {
-        long startTime = System.currentTimeMillis();
-            System.out.println(fib.doMath(35));
-        long estimatedTime = System.currentTimeMillis() - startTime;
-        System.out.println(estimatedTime/1000);
+        synchronized(fib) {
+            System.out.println(fib.doMath(65));
+        }
     }
 }
 public class FibSync2 {
@@ -33,6 +32,7 @@ public class FibSync2 {
         //long startTime = System.currentTimeMillis();
 
         System.out.println("==Application Started==");
+        //HashMap<BigInteger, BigInteger> memo = Cache.getCache();
         Fib2 fb = new Fib2();
         Fib fs = new Fib();
         MyThread2 mRef = new MyThread2(fb);

@@ -23,7 +23,10 @@ class Fib {
     HashMap<BigInteger, BigInteger> memo = Cache.getCache();
 
     int doMath(int n) {
+
+        
         if (n<2) {
+            System.out.println(n);
             return n;
         }
 
@@ -31,24 +34,25 @@ class Fib {
             return memo.get(BigInteger.valueOf(n)).intValue();
         }
 
+    
         return doMath(n-2) + doMath(n-1);
     }
 }
 class Fib2 {
 
-    HashMap<BigInteger, BigInteger> memo = Cache.getCache();
-    
-    BigInteger doMath(BigInteger n, Map<BigInteger, BigInteger> mp) {
+    HashMap<BigInteger, BigInteger> memo2 = Cache.getCache();
 
-        if (mp.containsKey(n)) {
-            return mp.get(n);
+    BigInteger doMath(BigInteger n) {
+
+        if (memo2.containsKey(n)) {
+            return memo2.get(n);
         }
         int cv = n.compareTo(BigInteger.valueOf(3));
         if (cv < 0) {
             return BigInteger.valueOf(1);
         }
-        mp.put(n, doMath(n.subtract(BigInteger.valueOf(2)), mp).add(doMath(n.subtract(BigInteger.valueOf(1)), mp)));
-        return mp.get(n);
+        memo2.put(n, doMath(n.subtract(BigInteger.valueOf(2))).add(doMath(n.subtract(BigInteger.valueOf(1)))));
+        return memo2.get(n);
     }
 }
 
