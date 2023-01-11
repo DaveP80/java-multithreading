@@ -1,3 +1,3 @@
-### try different numbers in the fibonnaci methods. One method solves 
-### with normal recursion, another uses BigInteger and memoized recursion
-#### uncomment lines to test the system compile time.
+#### try different numbers in the fibonnaci methods. Three big integer 
+#### methods that share a singleton map. three threads run synchronized
+#### and return calculations. Exceptions in three threads and caught.
