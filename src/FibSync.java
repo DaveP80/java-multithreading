@@ -67,46 +67,11 @@ class Fib3 {
         memo2.put(n, doMath(n.subtract(BigInteger.valueOf(2))).add(doMath(n.subtract(BigInteger.valueOf(1)))));
         return memo2.get(n);
     }
-
-    
 }
 
-// class MyThread1 extends Thread {
-//     Fib fib;
-
-//     MyThread1(Fib f) {
-//          fib = f;
-//     }
-//     @Override
-//     public void run() {
-//         synchronized (fib) {
-//             System.out.println(fib.doMath(34));
-//         }
-//     }
-// }
-// class YourThread2 extends Thread {
-//     Fib fib;
-
-//     YourThread2(Fib f) {
-//         fib = f;
-//     }
-//     @Override
-//     public void run() {
-//         synchronized (fib) {
-//             System.out.println(fib.doMath(28));
-//         }
-//     }
-// }
-
 public class FibSync {
-
     public static void main(String[] args) {
         System.out.println("==Application Started==");
-        ///Fib fb = new Fib();
-        //MyThread1 mRef = new MyThread1(fb);
-        //YourThread2 yT = new YourThread2(fb);
-        //mRef.start();
-        //yT.start();
         System.out.println("==Application Ended==");
     }
 }

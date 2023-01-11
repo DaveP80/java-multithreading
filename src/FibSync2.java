@@ -11,7 +11,6 @@ class MyThread2 extends Thread {
         synchronized (fib) {
             System.out.println(fib.doMath(BigInteger.valueOf(80)));
         }
-
     }
 }
 class YourThread3 extends Thread {
@@ -47,7 +46,6 @@ public class FibSync2 extends Thread {
     public static void main(String[] args) throws InterruptedException {
         //long startTime = System.currentTimeMillis();
         System.out.println("==Application Started==");
-        //HashMap<BigInteger, BigInteger> memo = Cache.getCache();
 
         Thread.UncaughtExceptionHandler h = new Thread.UncaughtExceptionHandler() {
             public void uncaughtException(Thread thread, Throwable exception) {
@@ -68,10 +66,8 @@ public class FibSync2 extends Thread {
         yT.start();
         mRef.start();
         yF.start();
-        //System.out.println(fb.doMath(BigInteger.valueOf(58), new HashMap<>()));
-        //System.out.println(fs.doMath(58));
-        System.out.println("==Application Ended==");
 
+        System.out.println("==Application Ended==");
 //        long estimatedTime = System.currentTimeMillis() - startTime;
 //        System.out.println(estimatedTime);
     }
