@@ -6,10 +6,10 @@ public class FibSema {
 
     public static void main(String[] args) {
         Semaphore sem = new Semaphore(1);
-        //put the bigger number value in thread one
-        new Thread(new NumOneThread("A", sem, BigInteger.valueOf(400))).start();
-        //put smaller value in thread two
-        new Thread(new NumTwoThread("B", sem, BigInteger.valueOf(100))).start();
+        //put the smaller number value in thread one
+        new Thread(new NumOneThread("A", sem, BigInteger.valueOf(100))).start();
+        //put bigger value in thread two
+        new Thread(new NumTwoThread("B", sem, BigInteger.valueOf(400))).start();
     }
 }
 class FibMap {
